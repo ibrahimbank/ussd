@@ -1,45 +1,30 @@
-import { Controller, Post, Req, Res } from '@nestjs/common';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 
 @Controller('ussd')
 export class UssdController {
   @Post()
-  async handleUssdRequest(@Req() req, @Res() res) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const UssdMenu = require('ussd-menu-builder');
-    const menu = new UssdMenu();
+  @Get()
+  async handleUssdRequest(@Req() req) {
+    const session_id = req.body['sessionId'] ?? null;
+    const service_code = req.body['serviceCode'] ?? null;
+    const phone_number = req.body['phoneNumber'] ?? null;
+    const text = req.body['text'] ?? 'default';
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const UssdRouter = require('ussd-menu-builder');
-    const router = new UssdRouter(menu);
+    console.log({
+      session_id,
+      service_code,
+      phone_number,
+    });
 
-    menu.startState({
-      run: () => {
-        menu.con(
-          'Welcome to My Health USSD App!\n1. Schedule an Appointment\n2. Get Test Results',
+    switch (text) {
+      case '':
+        return (
+          'CON What would you want to check \n' +
+          '1. My Account \n' +
+          '2. My phone number'
         );
-      },
-      next: {
-        '1': 'scheduleAppointment',
-        '2': 'getTestResults',
-      },
-    });
-
-    menu.state('scheduleAppointment', {
-      run: () => {
-        // Implement your logic to schedule an appointment here
-        menu.end('Appointment scheduled successfully!');
-      },
-    });
-
-    menu.state('getTestResults', {
-      run: () => {
-        // Implement your logic to retrieve test results here
-        menu.end('Your test results: ...');
-      },
-    });
-
-    router.run(req.body, async (ussdResult) => {
-      res.send(ussdResult);
-    });
+      default:
+        return 'Thanks for using stuff';
+    }
   }
 }
