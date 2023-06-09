@@ -10,6 +10,8 @@ export class UssdController {
     const phone_number = req.body['phoneNumber'] ?? null;
     const text = req.body['text'] ?? 'default';
 
+    console.log(text);
+
     console.log({
       session_id,
       service_code,
