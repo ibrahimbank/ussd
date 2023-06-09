@@ -31,19 +31,19 @@ export class UssdController {
       );
     } else if (text === '1*1') {
       console.log('i reach here');
-      return 'CON Your Pfizer Pharmaceuticals Balance is 498,899.00';
+      return 'END Your Pfizer Pharmaceuticals Balance is 498,899.00';
     } else if (text === '1*2') {
       return 'CON Roche Product Limited Balance is 790,760.00';
     } else if (text === '2') {
-      return 'End Your HMO is Health Care International LTD';
+      return 'END Your HMO is Health Care International LTD';
     } else if (text === '3') {
-      return 'End Your Phone Number is +234090898534';
+      return 'END Your Phone Number is +234090898534';
     } else if (text === '4') {
-      return 'End Your user ID is UNT0203581';
+      return 'END Your user ID is UNT0203581';
     } else if (text === '5') {
-      return 'End Your HMO Co-Pay is ₦1,001,011.50';
+      return 'END Your HMO Co-Pay is ₦1,001,011.50';
     } else if (text === '5') {
-      return 'End Your Service charge is ₦30,000.00';
+      return 'END Your Service charge is ₦30,000.00';
     }
 
     //   switch (text) {
