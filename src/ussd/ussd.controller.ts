@@ -33,10 +33,7 @@ export class UssdController {
           '1. Pfizer Pharmaceuticals\n' +
           '2. Roche Product Limited \n'
         );
-      case '1*1*1':
-        return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
-      case '1*1*2':
-        return 'End Roche Product Limited Balance is 790,760.00';
+
       case '1*2':
         return 'End Your HMO is Health Care International LTD';
       case '1*3':
@@ -47,6 +44,10 @@ export class UssdController {
         return 'End Your HMO Co-Pay is ₦1,001,011.50';
       case '1*6':
         return 'End Your Service charge is ₦30,000.00';
+      case '1*1*1':
+        return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
+      case '1*1*2':
+        return 'End Roche Product Limited Balance is 790,760.00';
       default:
         return 'End Thanks for using NHIS Service';
     }
