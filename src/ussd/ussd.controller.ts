@@ -23,6 +23,9 @@ export class UssdController {
         '6. Service charge \n'
       );
     } else if (text === '1') {
+      if (text == '1*1') {
+        return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
+      }
       return (
         'CON Which Balance do you want to check \n' +
         '1. Pfizer Pharmaceuticals\n' +
