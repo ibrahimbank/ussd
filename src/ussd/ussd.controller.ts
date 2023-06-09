@@ -29,9 +29,10 @@ export class UssdController {
         '1. Pfizer Pharmaceuticals\n' +
         '2. Roche Product Limited \n'
       );
-    } else if (text == '1*1') {
+    } else if (text === '1*1') {
+      console.log('i reach here');
       return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
-    } else if (text == '1*2') {
+    } else if (text === '1*2') {
       return 'End Roche Product Limited Balance is 790,760.00';
     } else if (text === '2') {
       return 'End Your HMO is Health Care International LTD';
