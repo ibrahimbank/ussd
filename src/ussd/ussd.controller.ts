@@ -4,11 +4,15 @@ import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 export class UssdController {
   @Post()
   @Get()
-  async handleUssdRequest(@Req() req) {
+  async handleUssdRequest(@Req() req, @Res() res) {
     const session_id = req.body['sessionId'] ?? null;
     const service_code = req.body['serviceCode'] ?? null;
     const phone_number = req.body['phoneNumber'] ?? null;
     const text = req.body['text'] ?? 'default';
+
+    const response = res;
+
+    console.log(response);
 
     console.log(text);
     console.log(typeof text);
@@ -31,9 +35,9 @@ export class UssdController {
       );
     } else if (text === '1*1') {
       console.log('i reach here');
-      return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
+      return 'CON Your Pfizer Pharmaceuticals Balance is 498,899.00';
     } else if (text === '1*2') {
-      return 'End Roche Product Limited Balance is 790,760.00';
+      return 'CON Roche Product Limited Balance is 790,760.00';
     } else if (text === '2') {
       return 'End Your HMO is Health Care International LTD';
     } else if (text === '3') {
