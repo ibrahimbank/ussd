@@ -4,15 +4,11 @@ import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 export class UssdController {
   @Post()
   @Get()
-  async handleUssdRequest(@Req() req, @Res() res) {
+  async handleUssdRequest(@Req() req) {
     const session_id = req.body['sessionId'] ?? null;
     const service_code = req.body['serviceCode'] ?? null;
     const phone_number = req.body['phoneNumber'] ?? null;
     const text = req.body['text'] ?? 'default';
-
-    const response = res;
-
-    console.log(response);
 
     console.log(text);
     console.log(typeof text);
