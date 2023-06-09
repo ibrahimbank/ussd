@@ -5,19 +5,12 @@ export class UssdController {
   @Post()
   @Get()
   async handleUssdRequest(@Req() req) {
-    console.log(req.body);
     const session_id = req.body['sessionId'] ?? null;
     const service_code = req.body['serviceCode'] ?? null;
     const phone_number = req.body['phoneNumber'] ?? null;
     const text = req.body['text'] ?? 'default';
 
     console.log(text);
-
-    console.log({
-      session_id,
-      service_code,
-      phone_number,
-    });
 
     switch (text) {
       case '':
