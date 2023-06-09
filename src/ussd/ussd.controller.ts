@@ -51,6 +51,8 @@ export class UssdController {
         return 'End Your Pfizer Pharmaceuticals Balance is 498,899.00';
       case '1*1*2':
         return 'End Roche Product Limited Balance is 790,760.00';
+      case 'default':
+        return 'End Invalid input';
       default:
         return 'End Thanks for using NHIS Service';
     }
