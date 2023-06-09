@@ -5,6 +5,7 @@ export class UssdController {
   @Post()
   @Get()
   async handleUssdRequest(@Req() req) {
+    console.log(req);
     const session_id = req.body['sessionId'] ?? null;
     const service_code = req.body['serviceCode'] ?? null;
     const phone_number = req.body['phoneNumber'] ?? null;
